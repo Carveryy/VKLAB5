@@ -1,13 +1,13 @@
-package org.example.vklab4;
+package org.example.vklab5;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Vklab4Application {
+public class Vklab5Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(Vklab4Application.class, args);
+        SpringApplication.run(Vklab5Application.class, args);
     }
 
 }

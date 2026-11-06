@@ -2,8 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Облік напоїв</title>
-    <link rel="stylesheet" th:href="@{/static/styles.css}">
+    <title>Облік напоїв з інгредієнтами</title>
+    <!-- Додано параметр ?v=1 щоб обійти кешування браузера під час розробки -->
+    <link rel="stylesheet" th:href="@{/css/styles.css(v=1)}">
 </head>
 <body>
 <h2>Список напоїв</h2>
@@ -11,7 +12,8 @@
     <tr>
         <th>ID</th>
         <th>Назва</th>
-        <th>Тип</th>
+        <th>Категорія</th>
+        <th>Інгредієнти</th>
         <th>Об'єм (л)</th>
         <th>Ціна (грн)</th>
         <th>Дії</th>
@@ -19,7 +21,8 @@
     <tr th:each="drink : ${drinks}">
         <td th:text="${drink.id}"></td>
         <td th:text="${drink.name}"></td>
-        <td th:text="${drink.type}"></td>
+        <td th:text="${drink.categoryName != null ? drink.categoryName : 'Немає'}"></td>
+        <td th:text="${drink.ingredientNames != null and !drink.ingredientNames.isEmpty() ? #strings.listJoin(drink.ingredientNames, ', ') : 'Немає'}"></td>
         <td th:text="${drink.volume}"></td>
         <td th:text="${drink.price}"></td>
         <td>
@@ -30,13 +33,43 @@
 </table>
 
 <hr>
-<h3>Додати новий напій</h3>
+
+<h2>Додати новий напій</h2>
 <form th:action="@{/drinks/add}" th:object="${newDrink}" method="post">
-    <input type="text" th:field="*{name}" placeholder="Назва" required>
-    <input type="text" th:field="*{type}" placeholder="Тип" required>
-    <input type="number" step="0.01" th:field="*{volume}" placeholder="Об'єм" required>
-    <input type="number" step="0.01" th:field="*{price}" placeholder="Ціна" required>
-    <button type="submit">Додати</button>
+    <div>
+        <label>Назва:</label>
+        <input type="text" th:field="*{name}" required>
+    </div>
+
+    <div>
+        <label>Категорія:</label>
+        <select th:field="*{categoryId}">
+            <option value="">-- Оберіть категорію --</option>
+            <option th:each="cat : ${categories}" th:value="${cat.id}" th:text="${cat.name}"></option>
+        </select>
+    </div>
+
+    <div class="checkbox-group-container">
+        <label>Інгредієнти:</label>
+        <div class="checkbox-group">
+                <span th:each="ing : ${ingredients}">
+                    <input type="checkbox" th:field="*{ingredientIds}" th:value="${ing.id}">
+                    <label th:text="${ing.name}"></label>
+                </span>
+        </div>
+    </div>
+
+    <div>
+        <label>Об'єм (л):</label>
+        <input type="number" step="0.01" th:field="*{volume}" required>
+    </div>
+
+    <div>
+        <label>Ціна (грн):</label>
+        <input type="number" step="0.01" th:field="*{price}" required>
+    </div>
+
+    <button type="submit">Додати напій</button>
 </form>
 </body>
 </html>

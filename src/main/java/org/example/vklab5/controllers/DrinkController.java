@@ -1,7 +1,7 @@
-package org.example.vklab4.controllers;
+package org.example.vklab5.controllers;
 
-import org.example.vklab4.dto.DrinkDto;
-import org.example.vklab4.service.DrinkService;
+import org.example.vklab5.dto.DrinkDto;
+import org.example.vklab5.service.DrinkService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +18,8 @@ public class DrinkController {
     @GetMapping
     public String showDrinks(Model model) {
         model.addAttribute("drinks", service.getAllDrinks());
+        model.addAttribute("categories", service.getAllCategories());
+        model.addAttribute("ingredients", service.getAllIngredients());
         model.addAttribute("newDrink", new DrinkDto());
         return "drinks-page";
     }
@@ -31,6 +33,8 @@ public class DrinkController {
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable("id") Long id, Model model) {
         model.addAttribute("drinkToEdit", service.getDrinkById(id));
+        model.addAttribute("categories", service.getAllCategories());
+        model.addAttribute("ingredients", service.getAllIngredients());
         return "edit-drink";
     }
 

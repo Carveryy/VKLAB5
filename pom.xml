@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>org.example</groupId>
-    <artifactId>VKLAB4</artifactId>
+    <artifactId>VKLAB5</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>VKLAB4</name>
-    <description>VKLAB4</description>
+    <name>VKLAB5</name>
+    <description>VKLAB5</description>
     <url/>
     <licenses>
         <license/>
