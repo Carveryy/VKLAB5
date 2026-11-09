@@ -1,9 +1,9 @@
-package org.example.vklab5.converters;
+package vklab5.converters;
 
-import org.example.vklab5.Data.Category;
-import org.example.vklab5.Data.Drink;
-import org.example.vklab5.Data.Ingredient;
-import org.example.vklab5.dto.DrinkDto;
+import vklab5.Data.Category;
+import vklab5.Data.Drink;
+import vklab5.Data.Ingredient;
+import vklab5.dto.DrinkDto;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

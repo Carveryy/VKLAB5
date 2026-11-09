@@ -1,4 +1,4 @@
-package org.example.vklab5.dto;
+package vklab5.dto;
 
 import java.util.List;
 

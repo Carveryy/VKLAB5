@@ -1,4 +1,4 @@
-package org.example.vklab5.Data;
+package vklab5.Data;
 
 import jakarta.persistence.*;
 import java.util.List;

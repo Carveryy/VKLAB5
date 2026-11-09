@@ -1,4 +1,4 @@
-package org.example.vklab5.controllers;
+package vklab5.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

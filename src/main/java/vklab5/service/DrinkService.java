@@ -1,13 +1,13 @@
-package org.example.vklab5.service;
+package vklab5.service;
 
-import org.example.vklab5.converters.DrinkConverter;
-import org.example.vklab5.Data.Category;
-import org.example.vklab5.Data.Drink;
-import org.example.vklab5.Data.Ingredient;
-import org.example.vklab5.dto.DrinkDto;
-import org.example.vklab5.repository.CategoryRepository;
-import org.example.vklab5.repository.DrinkRepository;
-import org.example.vklab5.repository.IngredientRepository;
+import vklab5.converters.DrinkConverter;
+import vklab5.Data.Category;
+import vklab5.Data.Drink;
+import vklab5.Data.Ingredient;
+import vklab5.dto.DrinkDto;
+import vklab5.repository.CategoryRepository;
+import vklab5.repository.DrinkRepository;
+import vklab5.repository.IngredientRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

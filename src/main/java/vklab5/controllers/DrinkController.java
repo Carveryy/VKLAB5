@@ -1,7 +1,7 @@
-package org.example.vklab5.controllers;
+package vklab5.controllers;
 
-import org.example.vklab5.dto.DrinkDto;
-import org.example.vklab5.service.DrinkService;
+import vklab5.dto.DrinkDto;
+import vklab5.service.DrinkService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
